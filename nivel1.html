@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="nivel1.css">
+</head>
+<audio id="musica" loop>
+  <source src="audio/Traversing the White Peaks.mp3" type="audio/mpeg">
+</audio>
+<body>
+  <button id="btnRegresar" class="btn-regresar">Regresar</button>
+
+<div id="pantallaFinal">🏆 Nivel Completado</div>
+    <div class="character-container">
+  <img src="personaje/personajeprincipal.png" alt="Personaje 2D">
+  <div class="message" id="message" onclick="advanceMessage()">
+    <span class="message-text">Haz clic aquí para iniciar</span>
+    
+  </div>
+</div>
+<button id="playButton" class="play-button" onclick="iniciarJuego()" style="display:none;">Jugar</button>
+<div id="juego" style="display:none;">
+  <div id="personajeContenedor">
+    <img src="personaje/personajepatineta.png" id="personajeJuego">
+    
+  </div>
+
+  <div id="mision" class="texto">Mi MISIÓN: aprender programación y adquirir experiencia que me ayude a cumplir mis metas.</div>
+  <div id="vision" class="texto">Mi VISION:es lograr ser un gran ingeniero en sistemanas y poder lograr tener mi propia empresa </div>
+</div>
+
+<script src="mensajenivel1.js"></script>
+</body>
+</html>

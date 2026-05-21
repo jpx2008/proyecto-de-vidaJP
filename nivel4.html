@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nivel 4</title>
+
+  <link rel="stylesheet" href="nivel4.css">
+</head>
+
+<body>
+
+
+<audio id="musica" loop>
+  <source src="audio/Traversing the White Peaks.mp3" type="audio/mpeg">
+</audio>
+
+
+<div class="character-container">
+
+
+  <img 
+    src="personaje/personajeprincipal.png"
+    class="personajeIntro"
+  >
+
+
+  <div 
+    class="message"
+    id="message"
+    onclick="advanceMessage()"
+  >
+    Haz clic aquí para iniciar
+  </div>
+
+</div>
+
+
+<button 
+  id="playButton"
+  onclick="iniciarJuego()"
+  style="display:none;"
+>
+  INICIAR
+</button>
+
+
+<div id="juego" style="display:none;">
+  <img src="personaje/personajearco.png" id="arquero">
+  <img src="personaje/diana.png" id="diana">
+  <div id="flecha"></div>
+  <div id="palabra"></div>
+  <div id="puntos">0</div>
+  <div id="botones">
+  <button id="btnDisparar">
+    🎯 DISPARAR
+  </button>
+  <button id="btnBotar">
+    🗑️ BOTAR
+  </button>
+</div>
+</div>
+<script src="mensajenivel4.js"></script>
+
+</body>
+</html>

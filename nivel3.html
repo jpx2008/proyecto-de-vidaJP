@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+         <link rel="stylesheet" href="nivel3.css">
+
+    </head>
+    <body>
+         <audio id="musica" loop>
+         <source src="audio/Traversing the White Peaks.mp3" type="audio/mpeg">
+</audio>
+  <button id="btnRegresar" class="btn-regresar">Regresar</button>
+
+<div id="pantallaFinal">🏆 Nivel Completado</div>
+    <div class="character-container">
+  <img src="personaje/personajeprincipal.png" alt="Personaje 2D">
+  <div class="message" id="message" onclick="advanceMessage()">
+    <span class="message-text">Haz clic aquí para iniciar</span>
+    
+  </div>
+</div>
+<button id="playButton" class="play-button" onclick="iniciarJuego()" style="display:none;">Jugar</button>
+
+<div id="juego" style="display:none;">
+  <div class="character-side">
+    <img src="personaje/personajetae.png" alt="Personaje de lado">
+  </div>
+  <div id="puntos">Puntos: 0</div>
+  <div id="cartas-container"></div>
+</div>
+
+
+
+
+
+
+<script src="mensajenivel3.js"></script>
+
+    
+    </body>
+</html>

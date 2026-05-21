@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proyecto de Vida</title>
+<link rel="stylesheet" href="estiloprincipal.css">
+<style>
+  #replayBtn {
+    display: none;
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%) translateY(20px);
+    opacity: 0;
+    padding: 14px 28px;
+    font-size: 18px;
+    border: none;
+    border-radius: 30px;
+    background: linear-gradient(135deg, #fff1a8, #ffce63);
+    color: #1a1a1a;
+    cursor: pointer;
+    box-shadow: 0 12px 30px rgba(255, 221, 87, 0.35);
+    transition: opacity 0.7s ease, transform 0.7s ease, box-shadow 0.7s ease;
+    z-index: 20;
+  }
+  #replayBtn.show {
+    display: block;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+    animation: floatNostalgia 4.5s ease-in-out infinite;
+  }
+  @keyframes floatNostalgia {
+    0% { transform: translateX(-50%) translateY(0); box-shadow: 0 12px 30px rgba(255, 221, 87, 0.35); }
+    50% { transform: translateX(-50%) translateY(-4px); box-shadow: 0 16px 36px rgba(255, 221, 87, 0.45); }
+    100% { transform: translateX(-50%) translateY(0); box-shadow: 0 12px 30px rgba(255, 221, 87, 0.35); }
+  }
+  .character-container {
+    position: relative;
+    display: inline-block;
+  }
+</style>
+</head>
+<audio id="musica" loop>
+  <source src="audio/Traversing the White Peaks.mp3" type="audio/mpeg">
+</audio>
+<body>
+  <!-- PANTALLA DE CARGA -->
+<div id="pantalla-carga">
+  <img src="fondos/fondocarga.png" class="imagen-carga">
+  
+  <div class="loader">
+    <div class="barra" id="barra"></div>
+  </div>
+
+  <p class="texto-carga">Cargando sistema...</p>
+</div>
+
+<!-- CONTENIDO PRINCIPAL -->
+<div id="contenido" style="display: none;">
+  <!-- TODO tu proyecto aquí -->
+</div>
+  <section class="pantalla1">
+  <h1>Proyecto de <span class="changing-text"></span></h1>
+
+
+<div class="character-container" onclick="showMessage()">
+  <img src="personaje/personajeprincipal.png" alt="Personaje 2D">
+  <div class="message" id="message">¡Hola! jp.</div>
+  <button id="replayBtn" class="startBtn">Volver a jugar</button>
+</div>
+</section>
+<script src="mensajefinal.js"></script>
+<script src="pantalla.js"></script>
+</body>
+</html>

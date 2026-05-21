@@ -1,0 +1,348 @@
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    overflow:hidden;
+    background-image:url('fondonivel6.png');
+    background-position:center;
+    background-repeat:no-repeat;
+    background-size:cover;
+    background-attachment:fixed;
+}
+
+
+.intro{
+
+    position:absolute;
+
+    inset:0;
+
+    z-index:1000;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    background:
+    linear-gradient(rgba(0,0,0,.3),rgba(0,0,0,.5)),
+    url('fuji.jpg');
+
+    background-size:cover;
+    background-position:center;
+
+}
+
+
+
+.introCharacter{
+
+    position:absolute;
+
+    left:80px;
+    bottom:120px;
+
+    width:220px;
+    height:270px;
+
+   
+
+    background-image:url('personaje/personajeprincipal.png');
+
+    background-size:cover;
+    background-position:center;
+
+  
+
+}
+
+
+.dialogue{
+
+    width:700px;
+
+    padding:35px;
+
+    border-radius:25px;
+
+    background:rgba(0,0,0,.6);
+
+    backdrop-filter:blur(8px);
+
+    color:white;
+
+    border:3px solid #d19a55;
+
+    box-shadow:0 0 25px #d19a55;
+
+}
+
+.dialogue h1{
+
+    color:#f7d9a3;
+
+    margin-bottom:20px;
+
+    font-size:45px;
+
+}
+
+.dialogue p{
+
+    font-size:24px;
+
+    line-height:1.7;
+
+}
+
+
+
+.startBtn{
+
+    margin-top:30px;
+
+    padding:18px 45px;
+
+    font-size:24px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:#d19a55;
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-shadow:0 0 20px #d19a55;
+
+}
+
+.startBtn:hover{
+
+    transform:scale(1.08);
+
+    background:#f7b763;
+
+}
+
+
+
+.scene{
+
+    width:100vw;
+    height:100vh;
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:none;
+
+    background-image:
+    linear-gradient(rgba(0,0,0,.15),rgba(0,0,0,.25)),
+    url('fondonivel6.png');
+
+    background-size:cover;
+
+    background-position:center;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+.floor{
+    position:absolute;
+
+    bottom:0;
+
+    width:100%;
+    height:220px;
+
+    background:
+    repeating-linear-gradient(
+        to right,
+        #2a1c12 0px,
+        #2a1c12 80px,
+        #1a120d 80px,
+        #1a120d 85px
+    );
+
+    border-top:6px solid #8a4d1f;
+
+    z-index:5;
+}
+
+
+
+.title{
+    position:absolute;
+
+    top:30px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    color:#f7d9a3;
+
+    font-size:55px;
+
+    letter-spacing:4px;
+
+    text-shadow:0 0 15px #f7d9a3;
+
+    z-index:200;
+}
+
+.roundText{
+    position:absolute;
+
+    top:110px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    color:#f7d9a3;
+
+    font-size:30px;
+
+    z-index:300;
+
+    text-shadow:0 0 15px #f7d9a3;
+}
+
+
+
+.zone{
+    position:absolute;
+
+    width:320px;
+    height:180px;
+
+    border:3px solid #d19a55;
+
+    border-radius:20px;
+
+    background:rgba(0,0,0,.35);
+
+    backdrop-filter:blur(4px);
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:#f7d9a3;
+
+    font-size:28px;
+
+    text-align:center;
+
+    box-shadow:0 0 20px #d19a55;
+
+    z-index:100;
+}
+
+#short{
+    left:120px;
+    top:180px;
+}
+
+#medium{
+    left:750px;
+    top:180px;
+}
+
+#long{
+    right:120px;
+    top:180px;
+}
+
+
+
+.card{
+    position:absolute;
+
+    width:150px;
+    height:85px;
+
+    border-radius:15px;
+
+    background:#f2d6a2;
+
+    color:#2a1c12;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+
+    font-weight:bold;
+
+    cursor:grab;
+
+    user-select:none;
+
+    box-shadow:0 0 15px #f2d6a2;
+
+    transition:.2s;
+
+    z-index:150;
+
+    padding:10px;
+}
+
+.card:hover{
+    transform:scale(1.05);
+}
+
+
+
+.message{
+    position:absolute;
+
+    inset:0;
+
+    background:rgba(0,0,0,.75);
+
+    display:none;
+
+    justify-content:center;
+    align-items:center;
+
+    flex-direction:column;
+
+    color:white;
+
+    z-index:500;
+}
+
+.message h1{
+    font-size:70px;
+
+    color:#f7d9a3;
+
+    text-shadow:0 0 20px #f7d9a3;
+}
+
+.message p{
+    margin-top:20px;
+    font-size:28px;
+}
+

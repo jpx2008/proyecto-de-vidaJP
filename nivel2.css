@@ -1,0 +1,422 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  background-image: url("fondos/nivel2.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.character-container {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 160px;
+  cursor: default;
+}
+.character-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.message {
+  position: absolute;
+  bottom: 50%;
+  right: 110%;
+  transform: translate(0, 50%);
+  background-color: #fff;
+  padding: 12px 18px;
+  border-radius: 50px;
+  border: 2px solid #ccc;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  display: block;
+  white-space: nowrap;
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
+  user-select: none;
+  cursor: pointer;
+}
+.message:hover {
+  background-color: #f6f6f6;
+}
+
+
+.play-button {
+  position: absolute;
+  left: 50%;
+  bottom: 45%;
+  transform: translateX(-50%);
+  padding: 14px 32px;
+  font-size: 20px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #00a6ff, #00e3ff);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  cursor: pointer;
+}
+
+.play-button:hover {
+  opacity: 0.95;
+}
+
+#puzzle {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+
+
+
+.pieza {
+  position: absolute;
+  width: 80px;
+  height: 80px;
+  cursor: grab;
+  perspective: 600px;
+}
+
+.pieza-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.6s;
+}
+
+.pieza-front,
+.pieza-back {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+}
+
+.pieza-front img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.pieza-back {
+  background: rgba(0, 0, 0, 0.9);
+  color: white;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 6px;
+  transform: rotateY(180deg);
+}
+
+.word-top {
+  position: absolute;
+  top: 8px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 9px;
+  font-weight: bold;
+  text-align: center;
+  width: calc(100% - 10px);
+}
+
+.word-middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 10px;
+  font-weight: bold;
+  text-align: center;
+  width: calc(100% - 10px);
+}
+
+.pieza.mostrar-palabras .pieza-inner,
+.pieza.girada .pieza-inner {
+  transform: rotateY(180deg);
+}
+
+#pieza1 { left: 50px; top: 100px; }
+#pieza2 { left: 50px; top: 200px; }
+#pieza3 { left: 50px; top: 300px; }
+#pieza4 { left: 50px; top: 400px; }
+#pieza5 { left: 50px; top: 500px; }
+#pieza6 { left: 50px; top: 600px; }
+#pieza7 { left: 50px; top: 700px; }
+#pieza8 { left: 50px; top: 800px; }
+#pieza9 { left: 50px; top: 900px; }
+
+.zona {
+  position: absolute;
+  width: 80px;
+  height: 50px;
+
+  border: 2px dashed red;
+}
+
+
+#zona1 { left: 45%; top: 30%; }
+#zona2 { left: 49%; top: 30%; }
+#zona3 { left: 53%; top: 30%; }
+#zona4 { left: 45%; top: 38%; }
+#zona5 { left: 49%; top: 38%; }
+#zona6 { left: 53%; top: 38%; }
+#zona7 { left: 45%; top: 45%; }
+#zona8 { left: 49%; top: 45%; }
+#zona9 { left: 53%; top: 45%; }
+/* cuando encaja */
+.correcto {
+  border: 2px solid rgba(0, 255, 255, 0);
+  box-shadow: 0 0 10px rgba(0, 255, 255, 0);
+}
+#personajeJuego {
+  position: absolute;
+  bottom: 190px;
+  left: 0;
+  width: 280px;
+  transition: left 0.2s;
+}
+#personajeContenedor {
+  position: absolute;
+  bottom: -48px;
+  left: 0;
+  transition: transform 0.2s;
+  
+}
+.izquierda {
+  transform: scaleX(-1);
+}
+
+
+.texto {
+  position: absolute;
+  top: 40px;
+  background: rgba(0,0,0,0.7);
+  color: white;
+  padding: 10px;
+  border-radius: 10px;
+  display: none;
+}
+
+
+
+#pantallaFinal {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 15px 30px;
+  background: rgba(4, 108, 156, 0.9);
+  color: white;
+  z-index: 9999;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 28px;
+  font-weight: bold;
+  font-family: Arial;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s;
+}
+
+#pantallaFinal.mostrar {
+  opacity: 1;
+}
+
+.btn-regresar {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  padding: 12px 22px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #003344;
+
+
+  background: linear-gradient(145deg, #3f9fb8, #3d83a7);
+
+  border: 2px solid #ccf7ff;
+  border-radius: 12px;
+
+  cursor: pointer;
+  display: none;
+
+  box-shadow:
+    0 0 10px #59b4d3,
+    0 0 20px #4285a7,
+    inset 0 0 10px rgba(255,255,255,0.6);
+
+  transition: 0.3s;
+  z-index: 10;
+}
+
+.btn-regresar:hover {
+  transform: scale(1.1);
+
+  color: #002233;
+
+  background: linear-gradient(145deg, #05913f81, #0f8d0b5e);
+
+  box-shadow:
+    0 0 20px #00ff4c,
+    0 0 40px #00ff4c,
+    0 0 60px #00ff4c,
+    inset 0 0 20px #ffffff;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+  .character-container {
+    width: 120px;
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .message {
+    font-size: 14px;
+    padding: 8px 10px;
+    bottom: 40%;
+    right: 120%;
+  }
+
+  .play-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    bottom: 40%;
+  }
+
+  #puzzle {
+    height: 80vh;
+  }
+
+  .pieza {
+    width: 60px;
+    height: 60px;
+  }
+
+  .pieza-back {
+    padding: 4px;
+  }
+
+  .word-top {
+    font-size: 7px;
+  }
+
+  .word-middle {
+    font-size: 8px;
+  }
+
+  #pieza1 { left: 20px; top: 50px; }
+  #pieza2 { left: 20px; top: 120px; }
+  #pieza3 { left: 20px; top: 190px; }
+  #pieza4 { left: 20px; top: 260px; }
+  #pieza5 { left: 20px; top: 330px; }
+  #pieza6 { left: 20px; top: 400px; }
+  #pieza7 { left: 20px; top: 470px; }
+  #pieza8 { left: 20px; top: 540px; }
+  #pieza9 { left: 20px; top: 610px; }
+
+  .zona {
+    width: 60px;
+    height: 40px;
+  }
+
+  #zona1 { left: 40%; top: 25%; }
+  #zona2 { left: 55%; top: 25%; }
+  #zona3 { left: 70%; top: 25%; }
+  #zona4 { left: 40%; top: 40%; }
+  #zona5 { left: 55%; top: 40%; }
+  #zona6 { left: 70%; top: 40%; }
+  #zona7 { left: 40%; top: 50%; }
+  #zona8 { left: 55%; top: 50%; }
+  #zona9 { left: 70%; top: 50%; }
+
+  #personajeJuego {
+    width: 200px;
+    bottom: 120px;
+  }
+
+  .texto {
+    font-size: 12px;
+    padding: 6px;
+  }
+
+  #pantallaFinal {
+    font-size: 20px;
+    padding: 10px 20px;
+  }
+
+  .btn-regresar {
+    top: 10px;
+    right: 10px;
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .character-container {
+    width: 140px;
+  }
+
+  .message {
+    font-size: 16px;
+  }
+
+  .play-button {
+    font-size: 18px;
+  }
+
+  .pieza {
+    width: 70px;
+    height: 70px;
+  }
+
+  .zona {
+    width: 70px;
+    height: 45px;
+  }
+
+  #pieza1 { left: 30px; top: 80px; }
+  #pieza2 { left: 30px; top: 160px; }
+  #pieza3 { left: 30px; top: 240px; }
+  #pieza4 { left: 30px; top: 320px; }
+  #pieza5 { left: 30px; top: 400px; }
+  #pieza6 { left: 30px; top: 480px; }
+  #pieza7 { left: 30px; top: 560px; }
+  #pieza8 { left: 30px; top: 640px; }
+  #pieza9 { left: 30px; top: 720px; }
+
+  #zona1 { left: 42%; top: 28%; }
+  #zona2 { left: 51%; top: 28%; }
+  #zona3 { left: 60%; top: 28%; }
+  #zona4 { left: 42%; top: 38%; }
+  #zona5 { left: 51%; top: 38%; }
+  #zona6 { left: 60%; top: 38%; }
+  #zona7 { left: 42%; top: 45%; }
+  #zona8 { left: 51%; top: 45%; }
+  #zona9 { left: 60%; top: 45%; }
+
+  #personajeJuego {
+    width: 240px;
+  }
+
+  .texto {
+    font-size: 14px;
+  }
+
+  #pantallaFinal {
+    font-size: 24px;
+  }
+}

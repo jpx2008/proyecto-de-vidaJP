@@ -1,0 +1,324 @@
+body{
+  margin:0;
+  overflow:hidden;
+
+  background-image:url("fondos/nivel4.png");
+  background-size:cover;
+  background-position:center;
+  background-repeat:no-repeat;
+
+  height:100vh;
+  font-family:Arial, sans-serif;
+}
+
+
+.character-container{
+  position:absolute;
+  bottom:20px;
+  right:20px;
+  width:180px;
+  z-index:10;
+}
+
+.personajeIntro{
+  width:100%;
+}
+
+.message{
+  position:absolute;
+  bottom:60%;
+  right:110%;
+
+  background:white;
+
+  padding:15px;
+  border-radius:20px;
+
+  width:320px;
+
+  cursor:pointer;
+
+  font-size:18px;
+  line-height:1.4;
+
+  box-shadow:0 0 15px rgba(0,0,0,0.3);
+}
+
+
+#playButton{
+  position:absolute;
+
+  left:50%;
+  bottom:18%;
+
+  transform:translateX(-50%);
+
+  padding:15px 40px;
+
+  font-size:22px;
+  font-weight:bold;
+
+  border:none;
+  border-radius:12px;
+
+  cursor:pointer;
+
+  background:linear-gradient(135deg,#00c3ff,#00fff2);
+  color:white;
+
+  box-shadow:
+    0 0 10px #00eaff,
+    0 0 20px #00eaff;
+
+  transition:0.3s;
+}
+
+#playButton:hover{
+
+  transform:translateX(-50%) scale(1.1);
+
+  box-shadow:
+    0 0 20px #00ffff,
+    0 0 40px #00ffff;
+}
+
+
+#juego{
+  position:relative;
+  width:100%;
+  height:100vh;
+}
+
+
+#arquero{
+  position:absolute;
+
+  left:40px;
+  bottom:80px;
+
+  width:320px;
+
+  z-index:2;
+}
+
+
+#diana{
+  position:absolute;
+
+  right:20px;
+  top:30%;
+
+  width:520px;
+
+  z-index:1;
+}
+
+#flecha{
+  position:absolute;
+
+  left:450px;
+  bottom:750px;
+
+  width:130px;
+  height:8px;
+
+  border-radius:20px;
+
+  display:none;
+
+  z-index:5;
+
+  box-shadow:0 0 15px currentColor;
+}
+
+
+#flecha::after{
+  content:"";
+
+  position:absolute;
+  right:-15px;
+  top:-6px;
+
+  width:0;
+  height:0;
+
+  border-top:10px solid transparent;
+  border-bottom:10px solid transparent;
+  border-left:18px solid white;
+}
+
+
+#palabra{
+  position:absolute;
+
+  top:40px;
+  left:50%;
+
+  transform:translateX(-50%);
+
+  padding:15px 35px;
+
+  font-size:28px;
+  font-weight:bold;
+
+  border-radius:15px;
+
+  color:white;
+
+  box-shadow:0 0 15px rgba(0,0,0,0.4);
+
+  z-index:10;
+
+  min-width:250px;
+  text-align:center;
+}
+
+
+#puntos{
+  position:absolute;
+
+  top:20px;
+  right:25px;
+
+  font-size:40px;
+  font-weight:bold;
+
+  color:white;
+
+  text-shadow:
+    0 0 10px cyan,
+    0 0 20px cyan;
+
+  z-index:10;
+}
+
+
+#botones{
+
+  position:absolute;
+
+  left:70px;
+  bottom:30px;
+
+  display:flex;
+  gap:20px;
+
+  z-index:20;
+}
+
+
+#btnDisparar{
+
+  padding:16px 28px;
+
+  font-size:20px;
+  font-weight:bold;
+
+  border:none;
+  border-radius:12px;
+
+  cursor:pointer;
+
+  color:white;
+
+  background:linear-gradient(135deg,#00c6ff,#0072ff);
+
+  box-shadow:
+    0 0 10px #00eaff,
+    0 0 20px #00eaff;
+
+  transition:0.3s;
+}
+
+#btnDisparar:hover{
+
+  transform:scale(1.1);
+
+  box-shadow:
+    0 0 20px #00ffff,
+    0 0 40px #00ffff;
+}
+
+
+#btnBotar{
+
+  padding:16px 28px;
+
+  font-size:20px;
+  font-weight:bold;
+
+  border:none;
+  border-radius:12px;
+
+  cursor:pointer;
+
+  color:white;
+
+  background:linear-gradient(135deg,#ff4b4b,#ff0000);
+
+  box-shadow:
+    0 0 10px #ff4d4d,
+    0 0 20px #ff4d4d;
+
+  transition:0.3s;
+}
+
+#btnBotar:hover{
+
+  transform:scale(1.1);
+
+  box-shadow:
+    0 0 20px #ff6b6b,
+    0 0 40px #ff6b6b;
+}
+
+/* ✨ EFECTO RESULTADO */
+.correcto{
+
+  animation:brilloBueno 0.8s;
+}
+
+.incorrecto{
+
+  animation:brilloMalo 0.8s;
+}
+
+
+@keyframes brilloBueno{
+
+  0%{
+    transform:translateX(-50%) scale(1);
+    box-shadow:0 0 0 lime;
+  }
+
+  50%{
+    transform:translateX(-50%) scale(1.15);
+    box-shadow:
+      0 0 20px lime,
+      0 0 40px lime;
+  }
+
+  100%{
+    transform:translateX(-50%) scale(1);
+  }
+}
+
+
+@keyframes brilloMalo{
+
+  0%{
+    transform:translateX(-50%) scale(1);
+  }
+
+  25%{
+    transform:translateX(-48%) rotate(2deg);
+  }
+
+  50%{
+    transform:translateX(-52%) rotate(-2deg);
+  }
+
+  100%{
+    transform:translateX(-50%) rotate(0);
+  }
+}

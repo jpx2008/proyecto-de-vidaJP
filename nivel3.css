@@ -1,0 +1,317 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+
+  background-image: url("fondos/nivel3.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.character-container {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  width: 160px;
+  cursor: default;
+}
+.character-container img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.message {
+  position: absolute;
+  bottom: 50%;
+  right: 110%;
+  transform: translate(0, 50%);
+  background-color: #fff;
+  padding: 12px 18px;
+  border-radius: 50px;
+  border: 2px solid #ccc;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+  display: block;
+  white-space: nowrap;
+  font-family: 'Arial', sans-serif;
+  font-size: 18px;
+  user-select: none;
+  cursor: pointer;
+}
+.message:hover {
+  background-color: #f6f6f6;
+}
+
+
+.play-button {
+  position: absolute;
+  left: 50%;
+  bottom: 45%;
+  transform: translateX(-50%);
+  padding: 14px 32px;
+  font-size: 20px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #00a6ff, #00e3ff);
+  color: #fff;
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.25);
+  cursor: pointer;
+}
+
+.play-button:hover {
+  opacity: 0.95;
+}
+
+#juego {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+
+.character-side {
+  position: absolute;
+  bottom: 20px;
+  left: 20px;
+  width: 160px;
+  height: 160px;
+}
+
+.character-side img {
+  width: 90%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#puntos {
+  position: absolute;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+  background-color: rgba(0,0,0,0.5);
+  padding: 10px;
+  border-radius:10px;
+}
+
+#cartas-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100%;
+  pointer-events: none;
+}
+
+.carta {
+  position: absolute;
+  width: 160px;
+  height: 190px;
+  background-image: url("fondos/tabla.png");
+  background-size: cover;
+
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: bold;
+  cursor: pointer;
+  pointer-events: auto;
+  animation: aparecer 1s ease-out;
+  color: white;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+}
+.carta img {
+  width: 100%;
+  height: auto;
+} 
+.romperse {
+  animation: romper 0.5s ease-out forwards;
+}
+
+@keyframes romper {
+  0% {
+    opacity: 1;
+    transform: scale(1) rotate(0deg);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.2) rotate(15deg);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0) rotate(45deg);
+  }
+}
+
+.character-side img.patada {
+  animation: patada 0.5s ease-out;
+}
+
+@keyframes patada {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(20px) rotate(-10deg);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes aparecer {
+  from {
+    opacity: 0;
+    transform: scale(0.5);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+#pantallaFinal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+
+  background: none;
+  color: #046c9c;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 40px;
+  font-weight: bold;
+  font-family: Arial;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.5s;
+  z-index: 1001;
+}
+
+#pantallaFinal.mostrar {
+  opacity: 1;
+}
+
+.btn-regresar {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+
+  padding: 12px 22px;
+  font-size: 16px;
+  font-weight: bold;
+  background: linear-gradient(135deg, #ff6b6b, #ee5a52);
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.btn-regresar:hover {
+  opacity: 0.9;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+  .character-container {
+    width: 120px;
+    bottom: 10px;
+    right: 10px;
+  }
+
+  .message {
+    font-size: 14px;
+    padding: 8px 10px;
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .play-button {
+    padding: 10px 20px;
+    font-size: 16px;
+    bottom: 40%;
+  }
+
+  #juego {
+    height: 90vh;
+  }
+
+  .carta {
+    width: 120px;
+    height: 140px;
+    font-size: 14px;
+  }
+
+  .character-side {
+    width: 120px;
+    height: 120px;
+    bottom: 10px;
+    left: 10px;
+  }
+
+  .character-side img {
+    width: 80%;
+  }
+
+  #puntos {
+    top: 10px;
+    font-size: 18px;
+    padding: 5px;
+  }
+
+  #pantallaFinal {
+    font-size: 24px;
+  }
+
+  .btn-regresar {
+    top: 10px;
+    right: 10px;
+    padding: 8px 16px;
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 1024px) {
+  .character-container {
+    width: 140px;
+  }
+
+  .message {
+    font-size: 16px;
+  }
+
+  .play-button {
+    font-size: 18px;
+  }
+
+  .carta {
+    width: 140px;
+    height: 165px;
+    font-size: 16px;
+  }
+
+  .character-side {
+    width: 140px;
+    height: 140px;
+  }
+
+  #puntos {
+    font-size: 20px;
+  }
+
+  #pantallaFinal {
+    font-size: 32px;
+  }
+}
